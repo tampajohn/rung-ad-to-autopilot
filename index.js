@@ -13,7 +13,7 @@ app.set('port', (process.env.PORT || 5000));
 
 app.post('/autopilot', function(req, res) {
     console.log(JSON.stringify(req.bodyk, null, 4));
-    var payload;
+    var payload = {};
     //Twitter
     if (req.body.email && req.body.screen_name && req.body.name) {
         payload = {
