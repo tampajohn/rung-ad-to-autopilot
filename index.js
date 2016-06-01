@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var request = require('request-json');
 
 var client = request.createClient('https://api2.autopilothq.com/');
-client.headers["autopilotapikey"] = "9cad0606bc1e4215b098389e15b8a4cb";
+client.headers["autopilotapikey"] = "6ad2dbded5cb44c19a5826784ba07889";
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
@@ -28,7 +28,8 @@ app.post('/autopilot', function(req, res) {
     else if (req.body.list_uuid && req.body.response == "new_registration") {
         payload = {
             "contact": {
-                "Email": req.body.email                
+                "Email": req.body.email,
+                "_autopilot_list": "contact_list_59B7CCF1-EA2F-4918-8B48-3A085CB9125B"       
             }
         }
     }
