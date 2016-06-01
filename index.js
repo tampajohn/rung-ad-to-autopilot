@@ -31,7 +31,7 @@ app.post('/autopilot', function(req, res) {
         payload = {
             "contact": {
                 "Email": req.body.email,
-                "_autopilot_list": "contact_list_59B7CCF1-EA2F-4918-8B48-3A085CB9125B"       
+                "_autopilot_list": "contactlist_59B7CCF1-EA2F-4918-8B48-3A085CB9125B"       
             }
         }
     }
