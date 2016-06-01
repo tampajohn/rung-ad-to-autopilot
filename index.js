@@ -16,6 +16,7 @@ app.post('/autopilot', function(req, res) {
     var payload = {};
     //Twitter
     if (req.body.email && req.body.screen_name && req.body.name) {
+        console.log("Twitter post")
         payload = {
             "contact": { 
                 "Email": req.body.email,
@@ -26,6 +27,7 @@ app.post('/autopilot', function(req, res) {
     }
     //Maitre 
     else if (req.body.list_uuid && req.body.response == "new_registration") {
+        console.log("Maitre post");
         payload = {
             "contact": {
                 "Email": req.body.email,
@@ -35,11 +37,11 @@ app.post('/autopilot', function(req, res) {
     }
     if (payload.Email) {        
         client.post('v1/contact', payload, function(err,httpResponse,body){ 
-            res.send();
+            res.send("Added Maitre to autopilot");
             res.end(); 
         });   
     } else {
-        res.send();
+        res.send("Nothing done");
         res.end();
     }
 });
