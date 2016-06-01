@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var request = require('request-json');
 var mongoClient = require('mongodb').MongoClient;
+var sha1 = require('sha1');
 
 var client = request.createClient('https://api2.autopilothq.com/');
 client.headers["autopilotapikey"] = "6ad2dbded5cb44c19a5826784ba07889";
@@ -33,6 +34,9 @@ app.post('/autopilot', function(req, res) {
             "contact": {
                 "FirstName": req.body.name,
                 "Email": req.body.email,
+                "custom": {
+                    "string--RungID": sha1(req.body.email)
+                },
                 "_autopilot_list": "contactlist_59B7CCF1-EA2F-4918-8B48-3A085CB9125B"       
             }
         }
@@ -43,7 +47,10 @@ app.post('/autopilot', function(req, res) {
         payload = {
             "contact": {
                 "FirstName": req.body.name,
-                "Email": req.body.email,                
+                "Email": req.body.email,  
+                "custom": {
+                    "string--RungID": sha1(req.body.email)
+                },              
                 "_autopilot_list": "contactlist_A73207C3-05D3-4270-965B-9B19467F1AF8"       
             }
         }
