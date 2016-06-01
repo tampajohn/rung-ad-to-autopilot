@@ -25,7 +25,7 @@ app.post('/autopilot', function(req, res) {
             }
         };  
     }
-    //Maitre 
+    //Maitre New User
     else if (req.body.list_uuid && req.body.response == "new_registration") {
         console.log("Maitre post");
         payload = {
@@ -33,6 +33,17 @@ app.post('/autopilot', function(req, res) {
                 "FirstName": req.body.name,
                 "Email": req.body.email,
                 "_autopilot_list": "contactlist_59B7CCF1-EA2F-4918-8B48-3A085CB9125B"       
+            }
+        }
+    }
+    //Maitre Accepted into Beta
+    else if (req.body.list_uuid && req.body.response == "subscriber_accepted") {
+        console.log("Maitre post");
+        payload = {
+            "contact": {
+                "FirstName": req.body.name,
+                "Email": req.body.email,
+                "_autopilot_list": "contactlist_A73207C3-05D3-4270-965B-9B19467F1AF8"       
             }
         }
     }
