@@ -30,6 +30,7 @@ app.post('/autopilot', function(req, res) {
         console.log("Maitre post");
         payload = {
             "contact": {
+                "FirstName": req.body.name,
                 "Email": req.body.email,
                 "_autopilot_list": "contactlist_59B7CCF1-EA2F-4918-8B48-3A085CB9125B"       
             }
