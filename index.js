@@ -54,14 +54,9 @@ app.post('/autopilot', function(req, res) {
                 "_autopilot_list": "contactlist_A73207C3-05D3-4270-965B-9B19467F1AF8"       
             }
         }
-        mongoClient.connect('mongodb://dashboard:JvcxeEyJ726W@ds021462.mlab.com:21462/rung-io', function(err,db) {
-           db.collection('beta-request').insert(payload, function(err, result) {
-               
-           })
-        });
     }
     if (payload.contact && payload.contact.Email) {
-        mongoClient.connect('mongodb://<dbuser>:<dbpassword>@ds021462.mlab.com:21462/rung-io', function(err,db) {
+        mongoClient.connect('mongodb://dashboard:JvcxeEyJ726W@ds021462.mlab.com:21462/rung-io', function(err,db) {
            db.collection('beta-request').insert(payload, function(err, result) {
                if (!err) {
                     client.post('v1/contact', payload, function(err,httpResponse,body){ 
