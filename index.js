@@ -35,7 +35,7 @@ app.post('/autopilot', function(req, res) {
             }
         }
     }
-    if (payload.Email) {        
+    if (payload.contact && payload.contact.Email) {        
         client.post('v1/contact', payload, function(err,httpResponse,body){ 
             res.send("Added Maitre to autopilot");
             res.end(); 
