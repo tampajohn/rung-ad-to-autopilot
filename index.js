@@ -35,8 +35,11 @@ app.post('/autopilot', function(req, res) {
                 "FirstName": req.body.name,
                 "Email": req.body.email,
                 "custom": {
+                    "string--ReferralLink": req.body.referral_link,
+                    "string--PeopleAhead": req.body.people_ahead,
                     "string--RungID": sha1(req.body.email)
                 },
+                // Add to Beta Registration List
                 "_autopilot_list": "contactlist_59B7CCF1-EA2F-4918-8B48-3A085CB9125B"       
             }
         }
@@ -51,6 +54,7 @@ app.post('/autopilot', function(req, res) {
                 "custom": {
                     "string--RungID": sha1(req.body.email)
                 },              
+                // Add to Beta Accepted list
                 "_autopilot_list": "contactlist_A73207C3-05D3-4270-965B-9B19467F1AF8"       
             }
         }
